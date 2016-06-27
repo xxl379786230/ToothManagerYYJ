@@ -1,0 +1,51 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "CRMGlobalConstants.h"
+
+#import "ChatDemoUIDefine.h"
+#import "EMAlertView.h"
+#import "TTGlobalUICommon.h"
+#import "UIViewController+DismissKeyboard.h"
+#import "NSString+Valid.h"
+#import "EaseUI.h"
+
+#import "EaseMob.h"
+//基本接口url
+#import "BaseUrl.h"
+//自动同步
+#import "AutoSync.h"
+#import "UIViewExt.h"
+
+#endif
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define MyColor(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1]
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define WS(weakSelf)  __weak __typeof(&*self) weakSelf = self;
+
+#if DEBUG
+#define NSLog(format, ...) do {                                                                          \
+fprintf(stderr, "<%s : %d> %s\n",                                           \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__, __func__);                                                        \
+(NSLog)((format), ##__VA_ARGS__);                                           \
+fprintf(stderr, "-------\n");                                               \
+} while (0)
+#else
+#define NSLog(...)
+#endif
