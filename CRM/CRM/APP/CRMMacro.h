@@ -18,8 +18,9 @@
 
 #define TABLE_SECTION_HEADER_TITLE_COLOR ([UIColor whiteColor])
 #define SEARCH_BAR_BACKGROUNDCOLOR (0xf8f8f8)
-#define NAVIGATIONBAR_BACKGROUNDCOLOR (0x00a0ea)
+#define NAVIGATIONBAR_BACKGROUNDCOLOR (0x69A5F6)
 #define MENU_BAR_BACKGROUND_COLOR (0xeaeaea)
+#define MainColor (0x69A5F6)
 #define CUSTOM_RED (0x9b0404)
 #define CUSTOM_GREEN (0x209538)
 #define CUSTOM_YELLOW (0x9b8301)
@@ -30,6 +31,6 @@
 #define TEXTFIELD_EDGE_LEFT (60.0f)
 
 #define UMENG_APPKEY @"5394748f56240b2eff0e9ae9"   //友盟Appkey
-#define APPLEID @"901754828"  //apple id
+#define APPLEID @"1088137601"  //apple id
 
 #endif

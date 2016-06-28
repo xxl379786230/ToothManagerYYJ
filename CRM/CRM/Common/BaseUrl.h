@@ -15,3 +15,4 @@
 #import "NotificationMacro.h"
 #import "SettingMacro.h"
 #import "NetworkConfigMacro.h"
+#import "CRMMacro.h"

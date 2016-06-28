@@ -145,7 +145,7 @@
     CGSize buttonTitleSize = [title sizeWithFont:[UIFont systemFontOfSize:15]];
     UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [addBtn setTitle:buttonTitle forState:UIControlStateNormal];
-    [addBtn setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateNormal];
+    [addBtn setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateNormal];
     addBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     addBtn.frame = CGRectMake(kScreenWidth - buttonTitleSize.width - 20 - 10, 5, buttonTitleSize.width + 20, 30);
     [addBtn addTarget:self action:@selector(addBtnAction) forControlEvents:UIControlEventTouchUpInside];

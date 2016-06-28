@@ -48,14 +48,14 @@
     [self.contentView addSubview:btnImageView];
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textColor = [UIColor colorWithHex:0x00a0ea];
+    titleLabel.textColor = [UIColor colorWithHex:MainColor];
     titleLabel.font = [UIFont systemFontOfSize:15];
     self.titleLabel = titleLabel;
     [self.contentView addSubview:titleLabel];
     
     
     UILabel *contentLabel = [[UILabel alloc] init];
-    contentLabel.textColor = [UIColor colorWithHex:0x00a0ea];
+    contentLabel.textColor = [UIColor colorWithHex:MainColor];
     contentLabel.font = [UIFont systemFontOfSize:24];
     self.contentLabel = contentLabel;
     [self.contentView addSubview:contentLabel];
@@ -65,7 +65,7 @@
     detailBtn.layer.cornerRadius = 5;
     detailBtn.layer.masksToBounds = YES;
     detailBtn.layer.borderWidth = 1;
-    detailBtn.layer.borderColor = [UIColor colorWithHex:0x00a0ea].CGColor;
+    detailBtn.layer.borderColor = [UIColor colorWithHex:MainColor].CGColor;
     [detailBtn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
     detailBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     self.detailBtn = detailBtn;

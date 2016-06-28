@@ -152,7 +152,7 @@
         UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
         cancelBtn.frame = CGRectMake(20, 0, 50, 44);
-        [cancelBtn setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateNormal];
+        [cancelBtn setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateNormal];
         [cancelBtn addTarget:self action:@selector(cancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cancelBtn];
         
@@ -160,7 +160,7 @@
         UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [finishBtn setTitle:@"确定" forState:UIControlStateNormal];
         finishBtn.frame = CGRectMake(self.frame.size.width - 50 - 20, 0, 50, 44);
-        [finishBtn setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateNormal];
+        [finishBtn setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateNormal];
         [finishBtn addTarget:self action:@selector(finishBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:finishBtn];
     }

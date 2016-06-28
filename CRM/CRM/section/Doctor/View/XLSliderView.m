@@ -30,7 +30,7 @@
 #pragma mark - 初始化
 - (void)setUp{
     UIView *lineView = [[UIView alloc] init];
-    lineView.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    lineView.backgroundColor = [UIColor colorWithHex:MainColor];
     self.lineView = lineView;
     [self addSubview:lineView];
     
@@ -49,7 +49,7 @@
         btn.frame = CGRectMake(i * btnW, 0, btnW, btnH);
         btn.tag = 100 + i;
         [btn setTitle:self.sourceList[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateSelected];
+        [btn setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateSelected];
         [btn setTitleColor:[UIColor colorWithHex:0x333333] forState:UIControlStateNormal];
         btn.titleLabel.adjustsFontSizeToFitWidth = YES;
         btn.titleLabel.font = [UIFont systemFontOfSize:15];

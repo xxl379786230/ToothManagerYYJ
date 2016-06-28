@@ -8,7 +8,6 @@
 
 #import "GroupPatientCell.h"
 #import "UIColor+Extension.h"
-#import "CRMMacro.h"
 #import "GroupPatientModel.h"
 #import "DBTableMode.h"
 #import "GroupMemberModel.h"
@@ -112,7 +111,7 @@
     
     switch (model.patient_status) {
         case PatientStatusUntreatment:
-            [_statusLabel setTextColor:[UIColor colorWithHex:0x00a0ea]];
+            [_statusLabel setTextColor:[UIColor colorWithHex:MainColor]];
             break;
         case PatientStatusUnplanted:
             [_statusLabel setTextColor:[UIColor colorWithHex:0xff3b31]];

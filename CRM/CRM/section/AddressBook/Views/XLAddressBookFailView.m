@@ -49,7 +49,7 @@
     
     _settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_settingButton setTitle:@"马上设置" forState:UIControlStateNormal];
-    _settingButton.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    _settingButton.backgroundColor = [UIColor colorWithHex:MainColor];
     _settingButton.layer.cornerRadius = 5;
     _settingButton.layer.masksToBounds = YES;
     _settingButton.titleLabel.textColor = [UIColor whiteColor];
@@ -76,7 +76,7 @@
     _messageLabel1.frame = CGRectMake(0, _tintImageView.bottom + 50, kScreenWidth, 25);
     _messageLabel1.text = @"通过通讯录，您可以快速添加患者、介绍人";
     _messageLabel2.frame = CGRectMake(0, _messageLabel1.bottom, kScreenWidth, 25);
-    _messageLabel2.text = @"请允许种牙管家读取您的通讯录";
+    _messageLabel2.text = @"请允许牙医家读取您的通讯录";
     
     CGFloat btnW = 270;
     CGFloat btnH = 50;

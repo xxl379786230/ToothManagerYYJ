@@ -316,7 +316,7 @@ NSString * const Repaired = @"已修复";
     UIColor *color = [UIColor blackColor];
     switch (status) {
         case PatientStatusUntreatment:
-            color = [UIColor colorWithHex:0x00a0ea];
+            color = [UIColor colorWithHex:MainColor];
             break;
         case PatientStatusUnplanted:
             color = [UIColor colorWithHex:0xff3b31];

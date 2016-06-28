@@ -8,7 +8,6 @@
 
 #import "XLMaterialsViewController.h"
 #import "NewMaterialsViewController.h"
-#import "CRMMacro.h"
 #import "UIColor+Extension.h"
 #import "MaterialTableViewCell.h"
 #import "ChineseSearchEngine.h"
@@ -257,7 +256,7 @@
     }
     double width=80.0f;
     //圆的背景颜色
-    UIColor * color=[UIColor colorWithHex:0x00a0ea];
+    UIColor * color=[UIColor colorWithHex:MainColor];
     //中间字的颜色
     UIColor * color1 = [UIColor whiteColor];
     
@@ -323,7 +322,7 @@
 #pragma mark -设置单元格
 - (UITableViewCell *)setUpTableViewCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath sourceArray:(NSArray *)sourceArray{
     //cell选中时的背景颜色要与圆圈的背景颜色一致
-    UIColor * seleColor = [UIColor colorWithHex:0x00a0ea];
+    UIColor * seleColor = [UIColor colorWithHex:MainColor];
     static NSString * ideString = @"materialCell";
     MaterialTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ideString];
     if (cell == nil) {

@@ -27,7 +27,6 @@
 #import "IntroducerManager.h"
 #import "XLIntroducerViewController.h"
 #import "NSDictionary+Extension.h"
-#import "CRMMacro.h"
 #import "DBTableMode.h"
 #import "CRMHttpRequest+Doctor.h"
 #import "MyPatientTool.h"
@@ -397,7 +396,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     //第一组的头视图
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
-    headView.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    headView.backgroundColor = [UIColor colorWithHex:MainColor];
     //头视图上的标题
     UIButton *consultationButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [consultationButton setTitle:@"会诊信息" forState:UIControlStateNormal];

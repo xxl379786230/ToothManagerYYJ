@@ -11,7 +11,7 @@
 */
 
 /**
- @brief 种牙管家 公共数据和预编译文件区.
+ @brief 牙医家 公共数据和预编译文件区.
  */
 
 #import "MBProgressHUD.h"

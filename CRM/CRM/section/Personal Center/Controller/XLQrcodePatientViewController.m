@@ -77,8 +77,8 @@
         [alertView show];
     }else{
         ShareMode *mode = [[ShareMode alloc]init];
-        mode.title = [NSString stringWithFormat:@"Hi，我是%@医生，请关注我的种牙管家微信平台",[AccountManager shareInstance].currentUser.name];
-        mode.message = @"关注后，您将通过种牙管家微信公众号获得预约通知和诊疗医嘱";
+        mode.title = [NSString stringWithFormat:@"Hi，我是%@医生，请关注我的牙医家微信平台",[AccountManager shareInstance].currentUser.name];
+        mode.message = @"关注后，您将通过牙医家微信公众号获得预约通知和诊疗医嘱";
         mode.url = [NSString stringWithFormat:@"%@%@/view/Introduce/DoctorDetail.aspx?doctor_id=%@",DomainRealName,Method_Weixin,[[AccountManager shareInstance] currentUser].userid];
         mode.image = self.qrcodeImageView.image;
         

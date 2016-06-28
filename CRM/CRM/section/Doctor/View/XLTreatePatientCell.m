@@ -41,7 +41,7 @@
     self.functionView.layer.cornerRadius = 4;
     self.functionView.layer.masksToBounds = YES;
     
-    self.payButton.layer.borderColor = [UIColor colorWithHex:0x00a0ea].CGColor;
+    self.payButton.layer.borderColor = [UIColor colorWithHex:MainColor].CGColor;
     self.payButton.layer.borderWidth = .5;
     self.payButton.layer.cornerRadius = 4;
     self.payButton.layer.masksToBounds = YES;
@@ -68,7 +68,7 @@
     //就诊状态
     switch ([model.patient_status integerValue]) {
         case PatientStatusUntreatment:
-            [self.treateStatus setTextColor:[UIColor colorWithHex:0x00a0ea]];
+            [self.treateStatus setTextColor:[UIColor colorWithHex:MainColor]];
             break;
         case PatientStatusUnplanted:
             [self.treateStatus setTextColor:[UIColor colorWithHex:0xff3b31]];

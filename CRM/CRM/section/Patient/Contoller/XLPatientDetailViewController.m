@@ -109,7 +109,7 @@
         [_addMedicalCaseButton setTitle:@"新建病历" forState:UIControlStateNormal];
         [_addMedicalCaseButton setImage:[UIImage imageNamed:@"team_add-blue"] forState:UIControlStateNormal];
         [_addMedicalCaseButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
-        [_addMedicalCaseButton setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateNormal];
+        [_addMedicalCaseButton setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateNormal];
         _addMedicalCaseButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_addMedicalCaseButton addTarget:self action:@selector(addMedicalButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }

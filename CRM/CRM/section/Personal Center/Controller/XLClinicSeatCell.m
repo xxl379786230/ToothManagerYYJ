@@ -153,7 +153,7 @@
 - (XLSegmentView *)buttonScrollView{
     if (!_buttonScrollView) {
         _buttonScrollView = [[XLSegmentView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-        _buttonScrollView.titleSelectColor = [UIColor colorWithHex:0x00a0ea];
+        _buttonScrollView.titleSelectColor = [UIColor colorWithHex:MainColor];
     }
     return _buttonScrollView;
 }

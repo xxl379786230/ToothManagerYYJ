@@ -189,7 +189,7 @@
     [addReserveButton setTitle:@"预约" forState:UIControlStateNormal];
     addReserveButton.titleLabel.font = CommenTitleFont;
     [addReserveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    addReserveButton.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    addReserveButton.backgroundColor = [UIColor colorWithHex:MainColor];
     addReserveButton.layer.cornerRadius = 2;
     addReserveButton.layer.masksToBounds = YES;
     [addReserveButton sizeToFit];

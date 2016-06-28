@@ -252,7 +252,7 @@ static const CGFloat ClinicAppointmentViewControllerCalendarHeight = 200;
         if (indexPath.row == 0) {
             //交叉视图
             XLAppointDateCell *dateCell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewDateCellIdentifier forIndexPath:indexPath];
-            dateCell.dateLabel.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+            dateCell.dateLabel.backgroundColor = [UIColor colorWithHex:MainColor];
             dateCell.dateLabel.textColor = [UIColor whiteColor];
             dateCell.contentView.backgroundColor = [UIColor whiteColor];
             
@@ -261,7 +261,7 @@ static const CGFloat ClinicAppointmentViewControllerCalendarHeight = 200;
             return dateCell;
         }else{
             XLAppointContentCell *contentCell = [collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewContentCellIdentifier forIndexPath:indexPath];
-            contentCell.contentLabel.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+            contentCell.contentLabel.backgroundColor = [UIColor colorWithHex:MainColor];
             contentCell.contentLabel.font = [UIFont systemFontOfSize:15];
             contentCell.contentLabel.textColor = [UIColor whiteColor];
             contentCell.contentView.backgroundColor = [UIColor whiteColor];

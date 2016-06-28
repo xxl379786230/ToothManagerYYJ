@@ -18,7 +18,6 @@
 #import "MJExtension.h"
 #import "JSONKit.h"
 #import "DBTableMode.h"
-#import "CRMMacro.h"
 #import "XLAddReminderViewController.h"
 #import "XLAutoSyncTool+XLDelete.h"
 #import "SysMessageTool.h"
@@ -160,7 +159,7 @@
     
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     editBtn.frame = CGRectMake(deleteBtn.right + 15, 10, (kScreenWidth - 20 * 2 - 15) / 2, 40);
-    editBtn.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    editBtn.backgroundColor = [UIColor colorWithHex:MainColor];
     [editBtn setTitle:@"修改预约" forState:UIControlStateNormal];
     [editBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     editBtn.titleLabel.font = [UIFont systemFontOfSize:15];

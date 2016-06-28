@@ -284,7 +284,7 @@
     //圆的背景颜色
     UIColor * color=[UIColor whiteColor];
     //中间字的颜色
-    UIColor * color1 = [UIColor colorWithHex:0x00a0ea];
+    UIColor * color1 = [UIColor colorWithHex:MainColor];
     
     UIGraphicsEndImageContext();
     

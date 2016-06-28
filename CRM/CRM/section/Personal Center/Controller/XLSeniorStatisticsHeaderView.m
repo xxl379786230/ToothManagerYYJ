@@ -154,7 +154,7 @@
     //查询按钮
     UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBtn setTitle:@"查询" forState:UIControlStateNormal];
-    searchBtn.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    searchBtn.backgroundColor = [UIColor colorWithHex:MainColor];
 //    searchBtn.backgroundColor = [UIColor colorWithHex:0xdddddd];
     searchBtn.layer.cornerRadius = 5;
     searchBtn.layer.masksToBounds = YES;

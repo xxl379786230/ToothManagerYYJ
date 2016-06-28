@@ -44,7 +44,7 @@
     pageController.menuViewStyle = WMMenuViewStyleLine;
     pageController.titleSizeSelected = 15;
     pageController.titleColorNormal = [UIColor colorWithHex:0x888888];
-    pageController.titleColorSelected = [UIColor colorWithHex:0x00a0ea];
+    pageController.titleColorSelected = [UIColor colorWithHex:MainColor];
     pageController.menuHeight = 44;
     pageController.menuItemWidth = kScreenWidth / 3;
     pageController.bounces = NO;
@@ -67,7 +67,7 @@
     self.segmentedControl.titleFont = [UIFont fontWithName:@"AvenirNext-Medium" size:14.0f];
     self.segmentedControl.titleTextColor = [UIColor whiteColor];
     self.segmentedControl.selectedTitleFont = [UIFont fontWithName:@"AvenirNext-DemiBold" size:14.0f];
-    self.segmentedControl.selectedTitleTextColor = [UIColor colorWithHex:0x00a0ea];
+    self.segmentedControl.selectedTitleTextColor = [UIColor colorWithHex:MainColor];
     self.segmentedControl.borderWidth = 1.0f;
     self.segmentedControl.borderColor = [UIColor whiteColor];
     self.segmentedControl.segmentIndicatorInset = 0;

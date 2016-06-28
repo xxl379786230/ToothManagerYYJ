@@ -29,7 +29,7 @@
 #define Time_TextColor Address_TextColor
 #define Appoint_TextFont [UIFont systemFontOfSize:15]
 #define Appoint_TextColor [UIColor colorWithHex:0xffffff]
-#define Appoint_BackgroundColor [UIColor colorWithHex:0x00a0ea]
+#define Appoint_BackgroundColor [UIColor colorWithHex:MainColor]
 
 @interface XLClinicCell ()
 

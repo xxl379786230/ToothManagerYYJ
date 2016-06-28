@@ -233,7 +233,7 @@ static const NSInteger kDoctorSqureViewControllerMenuHeight = 44;
         UserObject *userobj = [[AccountManager shareInstance] currentUser];
         ShareMode *mode = [[ShareMode alloc]init];
         mode.title = @"牙医新生活倡导者：年种植上千颗不是梦";
-        mode.message = [NSString stringWithFormat:@"他，3张牙椅上千颗植体；他，拥有上万名高端用户；种牙管家，开启牙医新生活！"];
+        mode.message = [NSString stringWithFormat:@"他，3张牙椅上千颗植体；他，拥有上万名高端用户；牙医家，开启牙医新生活！"];
         mode.url = [NSString stringWithFormat:@"%@%@/view/InviteFriends.aspx?doctorId=%@",DomainRealName,Method_Weixin,userobj.userid];
         mode.image = [UIImage imageNamed:@"crm_logo"];
         

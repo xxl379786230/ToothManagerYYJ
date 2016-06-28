@@ -15,7 +15,7 @@
 
 #define CommonFont [UIFont systemFontOfSize:15]
 #define CommonColor [UIColor colorWithHex:0x333333]
-#define CommonButtonColor [UIColor colorWithHex:0x00a0ea]
+#define CommonButtonColor [UIColor colorWithHex:MainColor]
 #define FinishLabelFont [UIFont systemFontOfSize:10]
 #define FinishedColor [UIColor colorWithHex:0x3dbd57]
 #define UnFinishColor [UIColor colorWithHex:0xff4e4a]
@@ -115,10 +115,10 @@
         [button setTitle:self.buttonNames[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 100 + i;
-        [button setTitleColor:[UIColor colorWithHex:0x00a0ea] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHex:MainColor] forState:UIControlStateNormal];
         button.titleLabel.font = CommonFont;
         button.layer.borderWidth = 1;
-        button.layer.borderColor = [UIColor colorWithHex:0x00a0ea].CGColor;
+        button.layer.borderColor = [UIColor colorWithHex:MainColor].CGColor;
         button.layer.cornerRadius = 3;
         button.layer.masksToBounds = YES;
         [self addSubview:button];

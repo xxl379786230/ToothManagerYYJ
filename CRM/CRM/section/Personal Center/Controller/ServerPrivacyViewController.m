@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"种牙管家服务协议";
+    self.title = @"牙医家服务协议";
     if (self.isPush) {
         [self setBackBarButtonWithImage:[UIImage imageNamed:@"btn_back"]];
     } else  {

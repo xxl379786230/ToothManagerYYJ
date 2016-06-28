@@ -37,7 +37,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView setSeparatorColor:[UIColor whiteColor]];
-        _tableView.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+        _tableView.backgroundColor = [UIColor colorWithHex:MainColor];
         [_tableView setScrollEnabled:NO];
         [self addSubview:_tableView];
         self.layer.shadowColor = [[UIColor blackColor]CGColor];
@@ -59,7 +59,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         UIView *viewBG = [[UIView alloc]initWithFrame:CGRectMake(0, 0,tableView.bounds.size.width, 40)];
-        viewBG.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+        viewBG.backgroundColor = [UIColor colorWithHex:MainColor];
         cell.backgroundView = viewBG;
         cell.textLabel.textColor = [UIColor whiteColor];
     }

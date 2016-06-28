@@ -252,7 +252,7 @@
         [_payButton setTitle:@"确认付款" forState:UIControlStateNormal];
         [_payButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _payButton.titleLabel.font = [UIFont systemFontOfSize:20];
-        _payButton.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+        _payButton.backgroundColor = [UIColor colorWithHex:MainColor];
         _payButton.layer.cornerRadius = 5;
         _payButton.layer.masksToBounds = YES;
         [_payButton addTarget:self action:@selector(payAction) forControlEvents:UIControlEventTouchUpInside];

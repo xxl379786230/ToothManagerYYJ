@@ -10,7 +10,7 @@
 #import "DBManager+Patients.h"
 #import "UIColor+Extension.h"
 
-#define TitleSelectColor [UIColor colorWithHex:0x00a0ea]
+#define TitleSelectColor [UIColor colorWithHex:MainColor]
 #define TitleNormalColor [UIColor colorWithHex:0x888888]
 #define TitleFont [UIFont systemFontOfSize:15]
 

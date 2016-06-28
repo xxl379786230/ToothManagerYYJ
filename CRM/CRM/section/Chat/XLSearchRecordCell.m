@@ -17,7 +17,7 @@
 #define NAME_TEXT_COLOR [UIColor colorWithHex:0x333333]
 #define CONTENT_TEXT_COLOR [UIColor colorWithHex:0x888888]
 #define TIME_TEXT_FONT [UIFont systemFontOfSize:12]
-#define CONTENT_SEARCH_TEXT_COLOR [UIColor colorWithHex:0x00a0ea]
+#define CONTENT_SEARCH_TEXT_COLOR [UIColor colorWithHex:MainColor]
 
 #define Margin 10
 

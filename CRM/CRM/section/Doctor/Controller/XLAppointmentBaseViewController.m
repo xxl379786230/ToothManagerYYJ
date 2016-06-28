@@ -70,7 +70,7 @@
     self.segmentedControl.titleFont = [UIFont fontWithName:@"AvenirNext-Medium" size:14.0f];
     self.segmentedControl.titleTextColor = [UIColor whiteColor];
     self.segmentedControl.selectedTitleFont = [UIFont fontWithName:@"AvenirNext-DemiBold" size:14.0f];
-    self.segmentedControl.selectedTitleTextColor = [UIColor colorWithHex:0x00a0ea];
+    self.segmentedControl.selectedTitleTextColor = [UIColor colorWithHex:MainColor];
     self.segmentedControl.borderWidth = 1.0f;
     self.segmentedControl.borderColor = [UIColor whiteColor];
     self.segmentedControl.segmentIndicatorInset = 0;

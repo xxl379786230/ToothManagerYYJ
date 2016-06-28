@@ -95,7 +95,7 @@
         //判断当前用户是否开启通讯录权限
         BOOL canShow = [[AddressBoolTool shareInstance] userAllowToAddress];
         if (!canShow) {
-            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"温馨提示" message:@"种牙管家没有访问手机通讯录的权限，请到系统设置->隐私->通讯录中开启；开启后患者来电即可看到ta的CT片和治疗情况" cancel:@"确定" certain:@"不再提醒" cancelHandler:^{
+            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"温馨提示" message:@"牙医家没有访问手机通讯录的权限，请到系统设置->隐私->通讯录中开启；开启后患者来电即可看到ta的CT片和治疗情况" cancel:@"确定" certain:@"不再提醒" cancelHandler:^{
             } comfirmButtonHandlder:^{
                 [CRMUserDefalut setObject:Auto_Action_Close forKey:AddressBook_IsShowKey];
             }];

@@ -125,7 +125,7 @@
             }];
             [sender didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
                 countDownButton.enabled = YES;
-                sender.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+                sender.backgroundColor = [UIColor colorWithHex:MainColor];
                 return @"获取验证码";
             }];
             

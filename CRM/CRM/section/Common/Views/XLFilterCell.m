@@ -15,7 +15,7 @@
 #define LeftButtonHeight 50
 #define LeftButtonColorNormal [UIColor colorWithHex:0xeeeeee]
 #define LeftButtonColorSelect [UIColor colorWithHex:0xffffff]
-#define LeftButtonTitleColorSelect [UIColor colorWithHex:0x00a0ea]
+#define LeftButtonTitleColorSelect [UIColor colorWithHex:MainColor]
 #define LeftButtonTitleColorNormal [UIColor colorWithHex:0x888888]
 #define LeftButtonTitleFont [UIFont systemFontOfSize:14]
 

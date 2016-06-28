@@ -243,9 +243,9 @@ static NSString *kConversationChatter = @"ConversationChatter";
 #pragma mark - 显示新版本更新
 - (void)showNewVersionWithoutCancel{
     //判断是否有新版本
-    [UIApplication checkNewVersionWithAppleID:@"901754828" handler:^(BOOL newVersion, NSURL *updateURL) {
+    [UIApplication checkNewVersionWithAppleID:APPLEID handler:^(BOOL newVersion, NSURL *updateURL) {
         if (newVersion) {
-            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"更新提示" message:@"种牙管家又有新版本啦!" cancel:nil certain:@"立即前往" cancelHandler:^{
+            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"更新提示" message:@"牙医家又有新版本啦!" cancel:nil certain:@"立即前往" cancelHandler:^{
             } comfirmButtonHandlder:^{
                 [UIApplication updateApplicationWithURL:updateURL];
             }];
@@ -270,10 +270,10 @@ static NSString *kConversationChatter = @"ConversationChatter";
 
 - (void)showAlertViewWithTime:(NSString *)time{
     //判断是否有新版本
-    [UIApplication checkNewVersionWithAppleID:@"901754828" handler:^(BOOL newVersion, NSURL *updateURL) {
+    [UIApplication checkNewVersionWithAppleID:APPLEID handler:^(BOOL newVersion, NSURL *updateURL) {
         [CRMUserDefalut setObject:time forKey:NewVersionUpdate_TimeKey];
         if (newVersion) {
-            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"更新提示" message:@"种牙管家又有新版本啦!" cancel:@"稍后更新" certain:@"立即前往" cancelHandler:^{
+            TimAlertView *alertView = [[TimAlertView alloc] initWithTitle:@"更新提示" message:@"牙医家又有新版本啦!" cancel:@"稍后更新" certain:@"立即前往" cancelHandler:^{
             } comfirmButtonHandlder:^{
                 [UIApplication updateApplicationWithURL:updateURL];
             }];

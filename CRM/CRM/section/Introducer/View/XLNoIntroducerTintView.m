@@ -54,7 +54,7 @@
     
     _settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_settingButton setTitle:@"添加我的第一个介绍人" forState:UIControlStateNormal];
-    _settingButton.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    _settingButton.backgroundColor = [UIColor colorWithHex:MainColor];
     _settingButton.layer.cornerRadius = 5;
     _settingButton.layer.masksToBounds = YES;
     _settingButton.titleLabel.textColor = [UIColor whiteColor];

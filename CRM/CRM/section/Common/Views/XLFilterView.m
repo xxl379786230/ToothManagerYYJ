@@ -110,7 +110,7 @@ static const NSTimeInterval kXLFilterViewAnimatedDuration = .35;
     _searchButton.layer.masksToBounds = YES;
     [_searchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _searchButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    _searchButton.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    _searchButton.backgroundColor = [UIColor colorWithHex:MainColor];
     [_btnSuperView addSubview:_searchButton];
     [_searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
     

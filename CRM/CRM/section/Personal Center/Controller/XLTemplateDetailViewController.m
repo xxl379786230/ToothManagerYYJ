@@ -104,7 +104,7 @@
             NSString *tint = @"特别说明：蓝色部分请勿修改，添加预约时系统会自动填写！";
             CGSize tintSize = [tint sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
             UILabel *tintLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, kScreenWidth - 20, tintSize.height)];
-            tintLabel.textColor = [UIColor colorWithHex:0x00a0ea];
+            tintLabel.textColor = [UIColor colorWithHex:MainColor];
             tintLabel.font = [UIFont systemFontOfSize:15];
             tintLabel.text = tint;
             tintLabel.numberOfLines = 0;
@@ -316,7 +316,7 @@
     for (int i = 0; i < leftArray.count; i++) {
         NSUInteger len = [rightArray[i] integerValue] - [leftArray[i] integerValue] + 1;
         NSRange range = NSMakeRange([leftArray[i] integerValue], len);
-        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:0x00a0ea] range:range];
+        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:MainColor] range:range];
     }
     return attrStr;
 }

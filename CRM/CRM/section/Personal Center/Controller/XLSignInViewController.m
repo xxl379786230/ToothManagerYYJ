@@ -53,7 +53,7 @@
 
 - (void)awakeFromNib{
     self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor colorWithHex:0x00a0ea];
+    self.tableView.backgroundColor = [UIColor colorWithHex:MainColor];
 }
 
 

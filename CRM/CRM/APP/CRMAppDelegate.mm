@@ -129,7 +129,7 @@
             //更新数据库表结构
             [[DBManager shareInstance] updateDB];
             TTMUserGuideController *guideController = [[TTMUserGuideController alloc] init];
-            guideController.images = @[@"nav1.png", @"nav2.png", @"nav3.png"];
+            guideController.images = @[@"newfeature_nav1.png", @"newfeature_nav2.png", @"newfeature_nav3.png"];
             guideController.showIndicator = NO;
             if ([[[AccountManager shareInstance] currentUser].hospitalName isNotEmpty]) {
                 guideController.forwardController = self.tabBarController;
