@@ -60,7 +60,6 @@
     if (IOS_9_OR_LATER) {
         [self add3DViewWithApplication:application];
     }
-
     return YES;
 }
 
@@ -162,7 +161,7 @@
         //更新数据库表结构
         [[DBManager shareInstance] updateDB];
         TTMUserGuideController *guideController = [[TTMUserGuideController alloc] init];
-        guideController.images = @[@"nav1.png", @"nav2.png", @"nav3.png"];
+        guideController.images = @[@"newfeature_nav1.png", @"newfeature_nav2.png", @"newfeature_nav3.png"];
         guideController.showIndicator = NO;
         guideController.forwardController = nav;
         self.window.rootViewController = guideController;

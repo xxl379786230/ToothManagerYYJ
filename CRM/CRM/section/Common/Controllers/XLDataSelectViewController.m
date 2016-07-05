@@ -49,8 +49,8 @@
         self.title = @"选择学历";
     }else if (self.type == XLDataSelectViewControllerMaterialType){
         //种植体类型
-        self.dataList = @[@"种植体",@"其它"];
-        self.title = @"选择种植体类型";
+        self.dataList = @[@"耗材",@"其它"];
+        self.title = @"选择耗材类型";
     }
 }
 

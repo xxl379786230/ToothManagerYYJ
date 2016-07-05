@@ -66,6 +66,26 @@
 - (NSArray *)getPatientWithKeyWords:(NSString *)keyWord;
 
 /**
+ *  查询患者列表所需的所有数据
+ *
+ *  @param doctor_id 医生的id
+    @param page      页数
+ *
+ *  @return 数组（YYJPatientListCellModel）
+ */
+- (NSArray *)getPatientListCellModelsWithDoctorId:(NSString *)doctor_id page:(int)page;
+/**
+ *  查询患者列表所需数据
+ *
+ *  @param doctor_id 医生id
+ *  @param keyWord   关键字
+ *
+ *  @return 数组（YYJPatientListCellModel）
+ */
+- (NSArray *)getPatientListCellModelsWithDoctorId:(NSString *)doctor_id keyWord:(NSString *)keyWord;
+
+
+/**
  *  根据类型获取患者信息
  *
  *  @param userid 好友的id

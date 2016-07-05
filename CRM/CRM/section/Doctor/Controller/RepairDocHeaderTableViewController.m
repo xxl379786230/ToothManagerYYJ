@@ -53,7 +53,7 @@
         alertView.tag = 101;
         [alertView show];
     }else{
-        [SVProgressHUD showImage:nil status:@"未找到修复医生电话"];
+        [SVProgressHUD showImage:nil status:@"未找到主管医生电话"];
     }
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

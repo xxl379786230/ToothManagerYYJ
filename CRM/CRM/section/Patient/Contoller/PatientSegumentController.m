@@ -54,10 +54,8 @@
 - (void)initSubControllers{
     //患者视图
     XLPatientDisplayViewController *patientVc = [[XLPatientDisplayViewController alloc] initWithStyle:UITableViewStylePlain];
-    patientVc.patientStatus = PatientStatuspeAll;
     [self addChildViewController:patientVc];
     self.currentViewController = patientVc;
-    [self setRightBarButtonWithTitle:@"筛选"];
     
     //消息视图
     SuccessViewController *successVc = [[SuccessViewController alloc] init];
@@ -106,7 +104,6 @@
     SuccessViewController *successVc = self.childViewControllers[1];
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
-        [self setRightBarButtonWithTitle:@"筛选"];
           [self transitionFromViewController:self.currentViewController toViewController:patientVC duration:.35 options:UIViewAnimationOptionTransitionNone animations:^{
               
           } completion:^(BOOL finished) {
@@ -117,7 +114,6 @@
               }
           }];
     }else{
-        [self setRightBarButtonWithTitle:nil];
         [self transitionFromViewController:self.currentViewController toViewController:successVc duration:.35 options:UIViewAnimationOptionTransitionNone animations:^{
         } completion:^(BOOL finished) {
             if (finished) {
@@ -126,16 +122,6 @@
                 self.currentViewController = patientVC;
             }
         }];
-    }
-}
-
-#pragma mark - Right View
-- (void)onRightButtonAction:(id)sender {
-    [self.view endEditing:YES];
-    if (self.segmentedControl.selectedSegmentIndex == 0) {
-        XLPatientDisplayViewController *patientVC = self.childViewControllers[0];
-        //判断当前选择的查询条件
-        [patientVC showFilterView];
     }
 }
 

@@ -11,8 +11,6 @@
 
 @interface PatientsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *countMaterial;
 @property (weak, nonatomic) IBOutlet UILabel *transferLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *zhuanZhenImageview;
 

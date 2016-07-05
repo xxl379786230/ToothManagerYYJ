@@ -84,7 +84,7 @@
             CGFloat imageViewX = i * imageViewWidth;
             imageView.frame = CGRectMake(imageViewX, imageViewY, imageViewWidth, imageViewHeight);
 //            imageView.image = [UIImage imageDeviceVersionWithName:_images[i]];
-            imageView.image = [UIImage imageNamed:_images[i]];
+            imageView.image = [UIImage imageNamed:images[i]];
             
             // 如果是最后一张页面，添加进入主页的按钮
             if (i == (count - 1)) {
@@ -96,13 +96,6 @@
                 UIButton *intoButton = [UIButton buttonWithType:UIButtonTypeCustom];
                 [intoButton setBackgroundImage:[UIImage resizedImageWithName:@"newfeature_button"]
                                       forState:UIControlStateNormal];
-//                [intoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//                intoButton.layer.cornerRadius = 5;
-//                intoButton.layer.masksToBounds = YES;
-//                intoButton.layer.borderWidth = 1;
-//                intoButton.layer.borderColor = [UIColor whiteColor].CGColor;
-//                [intoButton setTitleColor:MyColor(25.0f, 83.0f, 151.0f) forState:UIControlStateSelected];
-//                [intoButton setTitle:@"立即体验" forState:UIControlStateNormal];
                 intoButton.frame = CGRectMake(intoButtonX, intoButtonY, intoButtonW, intoButtonH);
                 [intoButton addTarget:self action:@selector(intoButtonAction:)
                      forControlEvents:UIControlEventTouchUpInside];

@@ -14,18 +14,16 @@
     /******************************环信集成Start*************************************/
     NSString *apnsCertName = nil;
 #if DEBUG
-    apnsCertName = @"toothManagerDoctor_dev";
+    apnsCertName = @"toothManagerYYJ_dev";
 #else
-    apnsCertName = @"toothManagerDoctor_dis";
+    apnsCertName = @"toothManagerYYJ_dis";
 #endif
     //如果是测试环境
     NSString *appKeyStr;
-    if ([DomainName isEqualToString:@"http://118.244.234.207/"]) {
-        appKeyStr = @"zijingyiyuan#zygjtest";
-    }else if([DomainName isEqualToString:@"http://211.149.247.149/"]){
-        appKeyStr = @"zijingyiyuan#betazygj";
+    if ([DomainName isEqualToString:@"http://www.ibeituan.com/"]) {
+        appKeyStr = @"zijingyiyuan#yyjtest";
     }else{
-        appKeyStr = @"zijingyiyuan#zygj";
+        appKeyStr = @"zijingyiyuan#yyj";
     }
     [[EaseMob sharedInstance] registerSDKWithAppKey:appKeyStr apnsCertName:apnsCertName otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
     

@@ -10,13 +10,10 @@
 #define NetworkConfigMacro_h
 
 // 域名
-#define DomainName @"http://www.zhongyaguanjia.com/"  //正式环境
-//#define DomainName @"http://118.244.234.207/"  //内测环境
+#define DomainName @"http://www.yayijiaa.com/"  //正式环境
 //#define DomainName @"http://www.ibeituan.com/"//公测环境
 
-//#define DomainRealName (([DomainName isEqualToString:@"http://122.114.62.57/"]) ? @"www.zhongyaguanjia.com/" : ([DomainName isEqualToString:@"http://211.149.247.149/"]) ? @"http://www.nifaxian.com/" : @"www.ibeituan.com/")
 #define DomainRealName DomainName
-
 
 //是否开启数据加密 open/close
 #define EncryptionOpen @"open"
@@ -32,7 +29,7 @@
 //                           团队协作                                //
 //////////////////////////////////////////////////////////////////////
 //病历相关基本接口
-#define QueryMedicalCaseBaseUrl  RealURL("MedicalCaseHandler.ashx",Method_His_Crm)
+#define QueryMedicalCaseBaseUrl  RealURL(MedicalCaseHandler.ashx,Method_His_Crm)
 //治疗团队基本接口
 #define TreateTeamBaseUrl  RealURL(CureTeamHandler.ashx,Method_His_Crm)
 //治疗方案基本接口

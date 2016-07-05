@@ -238,10 +238,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         //跳转到患者详情页面
-        PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-        cellModel.patientId = self.localNoti.patient_id;
         PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-        detailVc.patientsCellMode = cellModel;
+        detailVc.patientId = self.localNoti.patient_id;
         detailVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:detailVc animated:YES];
     }

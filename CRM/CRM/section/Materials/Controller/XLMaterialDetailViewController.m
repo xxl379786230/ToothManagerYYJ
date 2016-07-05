@@ -106,7 +106,7 @@
 
 - (void)initView{
     self.view.backgroundColor = [UIColor colorWithHex:VIEWCONTROLLER_BACKGROUNDCOLOR];
-    self.title = @"种植体详情";
+    self.title = @"耗材详情";
     [self setBackBarButtonWithImage:[UIImage imageNamed:@"btn_back"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"material_bianji_white@3x"]];
     
@@ -133,7 +133,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    CGFloat commonW = kScreenWidth / 4;
+    CGFloat commonW = kScreenWidth / 2;
     CGFloat commonH = 40;
     
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, commonH)];
@@ -149,27 +149,12 @@
     nameButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:nameButton];
     
-    
-    UIButton *statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statusButton setTitle:@"状态" forState:UIControlStateNormal];
-    [statusButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
-    [statusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    statusButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:statusButton];
-    
     UIButton *introducerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [introducerButton setTitle:@"介绍人" forState:UIControlStateNormal];
-    [introducerButton setFrame:CGRectMake(statusButton.right, 0, commonW, commonH)];
+    [introducerButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
     [introducerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     introducerButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:introducerButton];
-    
-    UIButton *numberButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [numberButton setTitle:@"数量" forState:UIControlStateNormal];
-    [numberButton setFrame:CGRectMake(introducerButton.right, 0, commonW, commonH)];
-    [numberButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    numberButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:numberButton];
     
     return bgView;
 }
@@ -201,7 +186,7 @@
     PatientsCellMode *cellMode = [patientCellModeArray objectAtIndex:indexPath.row];
     //跳转到新的患者详情页面
     PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-    detailVc.patientsCellMode = cellMode;
+    detailVc.patientId = cellMode.patientId;
     [self pushViewController:detailVc animated:YES];
 }
 

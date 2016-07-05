@@ -159,9 +159,9 @@
     
     //设置种植时间
     if ([medicalCase.implant_time isNotEmpty]) {
-        self.implantTimeLabel.text = [NSString stringWithFormat:@"种植时间：%@",medicalCase.implant_time];
+        self.implantTimeLabel.text = [NSString stringWithFormat:@"初诊时间：%@",medicalCase.implant_time];
     }else{
-        self.implantTimeLabel.text = @"种植时间：";
+        self.implantTimeLabel.text = @"初诊时间：";
     }
     
     //设置ct图显示

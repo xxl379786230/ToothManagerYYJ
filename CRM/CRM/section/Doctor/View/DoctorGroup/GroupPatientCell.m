@@ -21,9 +21,7 @@
 @interface GroupPatientCell (){
     UIImageView *_signImageView;//是否是转诊患者标识
     UILabel *_nameLabel;    //患者姓名
-    UILabel *_statusLabel;   //状态
     UILabel *_introducerLabel; //介绍人
-    UILabel *_numLabel;      //种植数量
     UIButton *_chooseButton; //是否选中
 }
 
@@ -63,26 +61,12 @@
     _nameLabel.adjustsFontSizeToFitWidth = YES;
     [self.contentView addSubview:_nameLabel];
     
-    //状态
-    _statusLabel = [[UILabel alloc] init];
-    _statusLabel.font = CommenFont;
-    _statusLabel.textColor = CommenColor;
-    _statusLabel.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:_statusLabel];
-    
     //介绍人
     _introducerLabel = [[UILabel alloc] init];
     _introducerLabel.font = CommenFont;
     _introducerLabel.textColor = CommenColor;
     _introducerLabel.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:_introducerLabel];
-    
-    //种植数量
-    _numLabel = [[UILabel alloc] init];
-    _numLabel.font = CommenFont;
-    _numLabel.textColor = CommenColor;
-    _numLabel.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:_numLabel];
     
     //是否选中
     _chooseButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -100,30 +84,11 @@
     }else{
         _nameLabel.text = model.patient_name;
     }
-    _statusLabel.text = model.statusStr;
-    _numLabel.text = [NSString stringWithFormat:@"%ld颗",(long)model.expense_num];
     _introducerLabel.text = model.intr_name;
     if (model.is_transfer == 0) {
         _signImageView.hidden = YES;
     }else{
         _signImageView.hidden = NO;
-    }
-    
-    switch (model.patient_status) {
-        case PatientStatusUntreatment:
-            [_statusLabel setTextColor:[UIColor colorWithHex:MainColor]];
-            break;
-        case PatientStatusUnplanted:
-            [_statusLabel setTextColor:[UIColor colorWithHex:0xff3b31]];
-            break;
-        case PatientStatusUnrepaired:
-            [_statusLabel setTextColor:[UIColor colorWithHex:0x37ab4e]];
-            break;
-        case PatientStatusRepaired:
-            [_statusLabel setTextColor:[UIColor colorWithHex:0x888888]];
-            break;
-        default:
-            break;
     }
 
     //如果已经是组员，默认不可选
@@ -146,22 +111,21 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    CGFloat commonW = (kScreenWidth - 30) / 4;
+    CGFloat commonW = (kScreenWidth - 30) / 2;
     if (!self.isManage) {
-        commonW = (kScreenWidth - 50) / 4;
+        commonW = (kScreenWidth - 50) / 2;
     }
     
-    _signImageView.frame = CGRectMake(0, (RowHeight - 20) / 2, 20, 20);
-    
     //计算所有的size
-    _nameLabel.frame = CGRectMake(_signImageView.right, 0, commonW - 20, RowHeight); //95
+    CGFloat nameW = commonW * .6;
+    CGFloat nameX = commonW - nameW;
+    _nameLabel.frame = CGRectMake(nameX, 0, nameW, RowHeight); //95
     
-    _statusLabel.frame = CGRectMake(_nameLabel.right, 0, commonW, RowHeight);
-    
-    _introducerLabel.frame = CGRectMake(_statusLabel.right, 0, commonW, RowHeight);
-    
-    //275  320 45
-    _numLabel.frame = CGRectMake(_introducerLabel.right, 0, commonW, RowHeight);
+    CGFloat signW = 20;
+    CGFloat signH = signW;
+    CGFloat signX = commonW - nameW - signW;
+    _signImageView.frame = CGRectMake(signX, (RowHeight - signH) / 2, signW, signH);
+    _introducerLabel.frame = CGRectMake(_nameLabel.right, 0, commonW, RowHeight);
     
     if (!self.isManage) {
         _chooseButton.frame = CGRectMake(self.width - RowHeight - 5, 0, RowHeight + 5, RowHeight);

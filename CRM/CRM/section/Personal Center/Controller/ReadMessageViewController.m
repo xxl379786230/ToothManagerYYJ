@@ -191,10 +191,8 @@
             return;
         }
         //跳转到新的患者详情页面
-        PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-        cellModel.patientId = model.message_id;
         PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-        detailVc.patientsCellMode = cellModel;
+        detailVc.patientId = model.message_id;
         detailVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:detailVc animated:YES];
         

@@ -58,7 +58,7 @@
         NSInteger repairCount = [[DBManager shareInstance] getPatientCountWithID:self.repairDoctorID type:TYPE_REPAIR];
         NSString *fromStr = [NSString stringWithFormat:@"我转给他%ld人",(long)fromCount];
         NSString *toStr = [NSString stringWithFormat:@"他转给我%ld人",(long)toCount];
-        NSString *repairStr = [NSString stringWithFormat:@"修复%ld人",(long)repairCount];
+        NSString *repairStr = [NSString stringWithFormat:@"主治%ld人",(long)repairCount];
         _sliderView.sourceList = @[toStr,fromStr,repairStr];
         _sliderView.delegate = self;
     }
@@ -209,7 +209,7 @@
     PatientsCellMode *cellMode = [self.patientCellModeArray objectAtIndex:indexPath.row];
     //跳转到新的患者详情页面
     PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-    detailVc.patientsCellMode = cellMode;
+    detailVc.patientId = cellMode.patientId;
     detailVc.hidesBottomBarWhenPushed = YES;
     [self pushViewController:detailVc animated:YES];
 }

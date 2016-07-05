@@ -11,9 +11,4 @@
 
 @interface XLPatientDisplayViewController : EaseConversationListViewController
 
-@property (nonatomic,readwrite) PatientStatus patientStatus;
-
-//显示和隐藏筛选视图
-- (void)showFilterView;
-
 @end

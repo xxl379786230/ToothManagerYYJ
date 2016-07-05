@@ -437,11 +437,9 @@
 
 #pragma mark - 患者详情
 - (void)junpToPatientDetailWithNotification:(LocalNotification *)notifi{
-    PatientsCellMode *cellMode = [[PatientsCellMode alloc] init];
-    cellMode.patientId = notifi.patient_id;
     //跳转到新的患者详情页面
     PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-    detailVc.patientsCellMode = cellMode;
+    detailVc.patientId = notifi.patient_id;
     detailVc.hidesBottomBarWhenPushed = YES;
     [self pushViewController:detailVc animated:YES];
 }

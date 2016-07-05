@@ -251,7 +251,7 @@
 #pragma mark - 排序按钮点击
 - (UIView *)setUpGroupViewAndButtons{
     
-    CGFloat commonW = kScreenWidth / 4;
+    CGFloat commonW = kScreenWidth / 2;
     CGFloat commonH = 40;
     
     UIView *bgView = [[UIView alloc]init];
@@ -266,30 +266,13 @@
     nameButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:nameButton];
     
-    
-    UIButton *statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statusButton setTitle:@"状态" forState:UIControlStateNormal];
-    [statusButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
-    [statusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    statusButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [statusButton addTarget:self action:@selector(statusButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [bgView addSubview:statusButton];
-    
     UIButton *introducerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [introducerButton setTitle:@"介绍人" forState:UIControlStateNormal];
-    [introducerButton setFrame:CGRectMake(statusButton.right, 0, commonW,commonH)];
+    [introducerButton setFrame:CGRectMake(introducerButton.right, 0, commonW,commonH)];
     [introducerButton addTarget:self action:@selector(introducerButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [introducerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     introducerButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:introducerButton];
-    
-    UIButton *numberButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [numberButton setTitle:@"数量" forState:UIControlStateNormal];
-    [numberButton setFrame:CGRectMake(introducerButton.right, 0, commonW, commonH)];
-    [numberButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [numberButton addTarget:self action:@selector(numberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    numberButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:numberButton];
     
     return bgView;
 }
@@ -495,7 +478,7 @@
     }else {
         //跳转到新的患者详情页面
         PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-        detailVc.patientsCellMode = cellMode;
+        detailVc.patientId = cellMode.patientId;
         detailVc.hidesBottomBarWhenPushed = YES;
         [self pushViewController:detailVc animated:YES];
     }

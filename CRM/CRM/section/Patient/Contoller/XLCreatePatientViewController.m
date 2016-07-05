@@ -118,7 +118,7 @@
         return;
     }
     
-    if(self.phoneField.text.length == 0 || ![NSString checkAllPhoneNumber:self.phoneField.text]){
+    if(self.phoneField.text.length == 0){
         [SVProgressHUD showImage:nil status:@"手机号无效，请重新输入"];
         return;
     }
@@ -193,9 +193,7 @@
             
             //跳转到患者详细信息页面
             PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-            PatientsCellMode *model = [[PatientsCellMode alloc] init];
-            model.patientId = patient.ckeyid;
-            detailVc.patientsCellMode = model;
+            detailVc.patientId = patient.ckeyid;
             detailVc.isNewPatient = YES;
             [self pushViewController:detailVc animated:YES];
             

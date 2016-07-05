@@ -104,9 +104,9 @@
     //修复医生
     NSString *doctorTitle;
     if (self.medicalCase.repair_doctor_name && [self.medicalCase.repair_doctor_name isNotEmpty]) {
-        doctorTitle = [NSString stringWithFormat:@"修复医生：%@",self.medicalCase.repair_doctor_name];
+        doctorTitle = [NSString stringWithFormat:@"主管医生：%@",self.medicalCase.repair_doctor_name];
     }else{
-        doctorTitle = @"修复医生：";
+        doctorTitle = @"主管医生：";
     }
     
     CGSize doctorTitleSize = [doctorTitle sizeWithFont:CommenTitleFont];
@@ -119,9 +119,9 @@
     //修复时间
     NSString *repairTime;
     if (self.medicalCase.repair_time && [self.medicalCase.repair_time isNotEmpty]) {
-        repairTime = [NSString stringWithFormat:@"修复时间：%@",[self dateStrFromatter:self.medicalCase.repair_time]];
+        repairTime = [NSString stringWithFormat:@"治疗完成：%@",[self dateStrFromatter:self.medicalCase.repair_time]];
     }else{
-        repairTime = @"修复时间：";
+        repairTime = @"治疗完成：";
     }
     
     CGSize repairTimeSize = [repairTime sizeWithFont:CommenTitleFont];
@@ -146,9 +146,9 @@
     //种植时间
     NSString *plantTime;
     if (self.medicalCase.implant_time && [self.medicalCase.implant_time isNotEmpty]) {
-        plantTime = [NSString stringWithFormat:@"种植时间：%@",[self dateStrFromatter:self.medicalCase.implant_time]];
+        plantTime = [NSString stringWithFormat:@"初诊时间：%@",[self dateStrFromatter:self.medicalCase.implant_time]];
     }else{
-        plantTime = @"种植时间：";
+        plantTime = @"初诊时间：";
     }
     CGSize plantSize = [plantTime sizeWithFont:CommenTitleFont];
     CGFloat plantX = self.width - plantSize.width - Margin;

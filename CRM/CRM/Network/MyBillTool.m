@@ -37,7 +37,7 @@
     params[doctorIdParam] = doctocId;
     params[typeParam] = type;
     
-    NSLog(@"%@",params);
+    [[CRMHttpTool shareInstance] logWithUrlStr:urlStr params:params];
     
     [[CRMUnEncryptedHttpTool shareInstance] GET:urlStr parameters:params success:^(id responseObject) {
         

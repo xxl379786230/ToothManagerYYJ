@@ -857,44 +857,6 @@
 
 #pragma mark - CreateCaseHeaderViewControllerDeleate
 - (void)didChooseTime:(NSString *)time withType:(NSString *)type{
-    WS(weakSelf);
-    //获取提醒数据
-    Patient *patient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patiendId];
-    [DoctorTool yuYueMessagePatient:self.patiendId fromDoctor:[AccountManager currentUserid] withMessageType:type withSendType:@"1" withSendTime:time success:^(CRMHttpRespondModel *result) {
-        if ([result.code integerValue] == 200) {
-            XLCustomAlertView *alertView = [[XLCustomAlertView alloc] initWithTitle:@"提醒患者" message:result.result Cancel:@"不发送" certain:@"发送" weixinEnalbe:self.isBind type:CustonAlertViewTypeCheck cancelHandler:^{
-            } certainHandler:^(NSString *content, BOOL wenxinSend, BOOL messageSend) {
-                [SysMessageTool sendMessageWithDoctorId:[AccountManager currentUserid] patientId:weakSelf.patiendId isWeixin:wenxinSend isSms:messageSend txtContent:content success:^(CRMHttpRespondModel *respond) {
-                    if ([respond.code integerValue] == 200) {
-                        [SVProgressHUD showImage:nil status:@"消息发送成功"];
-                        //将消息保存在消息记录里
-                        XLChatModel *chatModel = [[XLChatModel alloc] initWithReceiverId:weakSelf.patiendId receiverName:patient.patient_name content:content];
-                        [DoctorTool addNewChatRecordWithChatModel:chatModel success:nil failure:nil];
-                        //发送环信消息
-                        [EaseSDKHelper sendTextMessage:content
-                                                    to:patient.ckeyid
-                                           messageType:eMessageTypeChat
-                                     requireEncryption:NO
-                                            messageExt:nil];
-                        
-                    }else{
-                        [SVProgressHUD showImage:nil status:@"消息发送失败"];
-                    }
-                } failure:^(NSError *error) {
-                    [SVProgressHUD showImage:nil status:error.localizedDescription];
-                    if (error) {
-                        NSLog(@"error:%@",error);
-                    }
-                }];
-            }];
-            [alertView show];
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD showImage:nil status:error.localizedDescription];
-        if (error) {
-            NSLog(@"error:%@",error);
-        }
-    }];
 }
 
 - (IBAction)addRecordAction:(id)sender {

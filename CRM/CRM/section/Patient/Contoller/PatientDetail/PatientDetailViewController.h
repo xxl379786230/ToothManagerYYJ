@@ -10,7 +10,7 @@
 
 @interface PatientDetailViewController : TimViewController
 
-@property (nonatomic,retain) PatientsCellMode *patientsCellMode;
+@property (nonatomic, copy)NSString *patientId;
 
 @property (nonatomic, assign)BOOL isNewPatient;//从新增患者跳转
 

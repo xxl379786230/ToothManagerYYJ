@@ -72,43 +72,5 @@
 }
 
 #pragma mark - UITableViewDelegate/Datasource
-/*
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *ID = @"analyse_cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        
-        UIView *divider = [[UIView alloc] initWithFrame:CGRectMake(0, 43.5, kScreenWidth, 0.5)];
-        divider.backgroundColor = [UIColor colorWithHex:0xcccccc];
-        [cell.contentView addSubview:divider];
-    }
-    
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"种植统计";
-    }else{
-        cell.textLabel.text = @"修复统计";
-    }
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    XLSeniorStatisticsViewController *seniorVC = [[XLSeniorStatisticsViewController alloc] initWithStyle:UITableViewStylePlain];
-    if (indexPath.row == 0) {
-        seniorVC.type = SeniorStatisticsViewControllerPlant;
-    }else{
-        seniorVC.type = SeniorStatisticsViewControllerRepair;
-    }
-    [self pushViewController:seniorVC animated:YES];
-}
- 
- */
 
 @end

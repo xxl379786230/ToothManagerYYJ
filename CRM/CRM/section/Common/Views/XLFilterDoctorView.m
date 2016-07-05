@@ -65,7 +65,7 @@
     [self addSubview:_chooseSuperView];
     
     _tintLabel = [[UILabel alloc] init];
-    _tintLabel.text = @"请选择修复医生";
+    _tintLabel.text = @"请选择主管医生";
     _tintLabel.font = [UIFont systemFontOfSize:15];
     _tintLabel.textColor = [UIColor colorWithHex:0xbbbbbb];
     [_chooseSuperView addSubview:_tintLabel];

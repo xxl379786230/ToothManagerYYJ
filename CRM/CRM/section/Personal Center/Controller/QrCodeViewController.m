@@ -55,7 +55,6 @@
     NSString *qrcodeUrl = [CRMUserDefalut objectForKey:QRCODE_URL_KEY];
     
     if (self.isDoctor) {
-        [self setRightBarButtonWithTitle:@"分享"];
         self.sendMessageView.hidden = YES;
         
         [DoctorTool getQrCodeWithPatientKeyId:@"" isDoctor:self.isDoctor success:^(NSDictionary *result) {
@@ -89,9 +88,8 @@
 }
 
 - (void)onRightButtonAction:(id)sender {
-    
-    UIActionSheet *sheetView = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"微信" otherButtonTitles:@"朋友圈", nil];
-    [sheetView showInView:self.view];
+//    UIActionSheet *sheetView = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"微信" otherButtonTitles:@"朋友圈", nil];
+//    [sheetView showInView:self.view];
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if(![WXApi isWXAppInstalled]){

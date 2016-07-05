@@ -8,7 +8,7 @@
 
 #import "CRMAppDelegate.h"
 
-static NSString *appKey = @"c0158ee5fb8ece4e03df5ca5";
+static NSString *appKey = @"817149156ddbc40f380b2f69";
 static NSString *channel = @"App Store";
 static BOOL isProduction = FALSE;
 

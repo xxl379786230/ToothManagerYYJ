@@ -41,7 +41,7 @@ Realize_ShareInstance(AddressBoolTool);
     }
     
     if ([plantTime isNotEmpty]) {
-        NSString *time1 = [NSString stringWithFormat:@"种植时间:%@",[plantTime componentsSeparatedByString:@" "][0]];
+        NSString *time1 = [NSString stringWithFormat:@"初诊时间:%@",[plantTime componentsSeparatedByString:@" "][0]];
         CGSize time1Size = [time1 sizeWithFont:[UIFont fontWithName:@"Arial-BoldMT" size:15]];
         CGFloat time1Y = imageY;
         CGFloat time1X = (kScreenWidth - time1Size.width) / 2;

@@ -20,6 +20,7 @@
 #import "PatientManager.h"
 #import "NSString+TTMAddtion.h"
 #import "XLTransferRecordModel.h"
+#import "YYJPatientCellModel.h"
 
 #define ImageDown [NSString stringWithFormat:@"%@%@/UploadFiles/",DomainName,Method_His_Crm]
 @implementation DBManager (Patients)
@@ -886,7 +887,7 @@
 
          while ([result next])
          {
-             Patient * patient = [Patient patientWithMixResult:result];
+             Patient *patient = [Patient patientlWithResult:result];
              [resultArray addObject:patient];
          }
          [result close];
@@ -894,6 +895,74 @@
     
     return resultArray;
 }
+
+/**
+ *  查询患者列表所需的所有数据
+ *
+ *  @param doctor_id 医生的id
+ *
+ *  @return 数组（YYJPatientListCellModel）
+ */
+- (NSArray *)getPatientListCellModelsWithDoctorId:(NSString *)doctor_id page:(int)page{
+    __block FMResultSet* result = nil;
+    
+    NSMutableArray* resultArray = [NSMutableArray arrayWithCapacity:0];
+    
+    [self.fmDatabaseQueue inDatabase:^(FMDatabase *db)
+     {
+         NSString *sqlString = [NSString stringWithFormat:@"SELECT a.ckeyid, a.patient_name,a.update_date,ct.* FROM (SELECT p.* FROM %@ p WHERE p.creation_date > datetime('%@') AND p.patient_status >= 0 AND (p.doctor_id = '%@' OR p.ckeyid IN (SELECT patient_id FROM %@ WHERE doctor_id = '%@' OR intr_id = '%@'))) a LEFT JOIN %@ ct ON creation_date_sync > datetime('%@') AND ct.case_id IN (SELECT mc.ckeyid FROM %@ mc WHERE mc.patient_id = a.ckeyid) GROUP BY a.ckeyid, a.patient_name ORDER BY a.update_date DESC LIMIT %i,%i;",PatientTableName,[NSString defaultDateString],doctor_id,PatIntrMapTableName,doctor_id,doctor_id,CTLibTableName,[NSString defaultDateString],MedicalCaseTableName,page * CommonPageSize,CommonPageSize];
+         
+         result = [db executeQuery:sqlString];
+         
+         while ([result next])
+         {
+             YYJPatientCellModel *cellModel = [[YYJPatientCellModel alloc] init];
+             cellModel.patientId = [result stringForColumn:@"a.ckeyid"];
+             cellModel.patientName = [result stringForColumn:@"a.patient_name"];
+             cellModel.cureTime = [result stringForColumn:@"a.update_date"];
+             cellModel.mainCTImage = [result stringForColumn:@"ct_image"];
+             [resultArray addObject:cellModel];
+         }
+         [result close];
+     }];
+    
+    return resultArray;
+}
+
+/**
+ *  查询患者列表所需数据
+ *
+ *  @param doctor_id 医生id
+ *  @param keyWord   关键字
+ *
+ *  @return 数组（YYJPatientListCellModel）
+ */
+- (NSArray *)getPatientListCellModelsWithDoctorId:(NSString *)doctor_id keyWord:(NSString *)keyWord{
+    __block FMResultSet* result = nil;
+    
+    NSMutableArray* resultArray = [NSMutableArray arrayWithCapacity:0];
+    
+    [self.fmDatabaseQueue inDatabase:^(FMDatabase *db)
+     {
+         NSString *sqlString = [NSString stringWithFormat:@"SELECT a.ckeyid, a.patient_name,a.update_date,ct.* FROM (SELECT p.* FROM %@ p WHERE p.creation_date > datetime('%@') AND p.patient_status >= 0 AND (p.doctor_id = '%@' OR p.ckeyid IN (SELECT patient_id FROM %@ WHERE doctor_id = '%@' OR intr_id = '%@'))) a LEFT JOIN %@ ct ON creation_date_sync > datetime('%@') AND ct.case_id IN (SELECT mc.ckeyid FROM %@ mc WHERE mc.patient_id = a.ckeyid) WHERE a.patient_name like '%%%@%%' or a.patient_phone like '%%%@%%' GROUP BY a.ckeyid, a.patient_name ORDER BY a.update_date DESC",PatientTableName,[NSString defaultDateString],doctor_id,PatIntrMapTableName,doctor_id,doctor_id,CTLibTableName,[NSString defaultDateString],MedicalCaseTableName,keyWord,keyWord];
+         
+         result = [db executeQuery:sqlString];
+         
+         while ([result next])
+         {
+             YYJPatientCellModel *cellModel = [[YYJPatientCellModel alloc] init];
+             cellModel.patientId = [result stringForColumn:@"a.ckeyid"];
+             cellModel.patientName = [result stringForColumn:@"a.patient_name"];
+             cellModel.cureTime = [result stringForColumn:@"a.update_date"];
+             cellModel.mainCTImage = [result stringForColumn:@"ct_image"];
+             [resultArray addObject:cellModel];
+         }
+         [result close];
+     }];
+    
+    return resultArray;
+}
+
 
 /**
  *  根据类型获取患者
@@ -3178,7 +3247,6 @@
     NSMutableArray *resultArray = [NSMutableArray arrayWithCapacity:0];
     
     NSString *sqlStr = [NSString stringWithFormat:@"select * from %@ ct where ct.is_main = '1' and creation_date_sync > datetime('%@') and ct.doctor_id='%@' and ct.case_id in (select mc.ckeyid from %@ mc where mc.patient_id = '%@')",CTLibTableName,[NSString defaultDateString],[AccountManager currentUserid],MedicalCaseTableName,patient_id];
-//    NSString *sqlStr = [NSString stringWithFormat:@"select * from %@ where case_id = '%@' and user_id = '%@' and creation_date_sync > datetime('%@') and is_main = '1'",CTLibTableName,case_id,[AccountManager currentUserid],[NSString defaultDateString]];
     
     __block FMResultSet *result = nil;
     [self.fmDatabaseQueue inDatabase:^(FMDatabase *db) {

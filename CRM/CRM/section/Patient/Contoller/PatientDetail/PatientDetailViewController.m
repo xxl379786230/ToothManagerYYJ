@@ -161,7 +161,7 @@
 #pragma mark -加载数据
 - (void)setUpData {
     
-    _detailPatient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientsCellMode.patientId];
+    _detailPatient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientId];
     if (_detailPatient == nil) {
         [SVProgressHUD showImage:nil status:@"患者不存在"];
         return;
@@ -184,7 +184,7 @@
 
 - (void)refreshView {
     [super refreshView];
-    self.detailPatient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientsCellMode.patientId];
+    self.detailPatient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientId];
     
     _headerInfoView.detailPatient = self.detailPatient;
     
@@ -255,7 +255,7 @@
 #pragma mark - 获取患者的CT状态
 - (void)requestPatientCTsStatus{
     //获取所有的CT片的id
-    NSArray *cts = [[DBManager shareInstance] getCTLibArrayWithPatientId:self.patientsCellMode.patientId];
+    NSArray *cts = [[DBManager shareInstance] getCTLibArrayWithPatientId:self.patientId];
     NSMutableString *ctids = [NSMutableString string];
     for (CTLib *ct in cts) {
         [ctids appendFormat:@"%@,",ct.ckeyid];
@@ -286,7 +286,7 @@
 
 #pragma mark - 获取患者分组信息
 - (void)requestGroupData{
-    [DoctorGroupTool getGroupListWithDoctorId:[AccountManager currentUserid] ckId:@"" patientId:self.patientsCellMode.patientId success:^(NSArray *result) {
+    [DoctorGroupTool getGroupListWithDoctorId:[AccountManager currentUserid] ckId:@"" patientId:self.patientId success:^(NSArray *result) {
         _headerInfoView.currentGroups = result;
     } failure:^(NSError *error) {
         [SVProgressHUD showImage:nil status:error.localizedDescription];
@@ -479,7 +479,7 @@
     
     UserObject *user = [[AccountManager shareInstance] currentUser];
     PatientConsultation *consultation = [[PatientConsultation alloc] init];
-    consultation.patient_id = self.patientsCellMode.patientId;
+    consultation.patient_id = self.patientId;
     consultation.doctor_name = user.name;
     consultation.cons_content = content;
     consultation.cons_type = @"0";
@@ -728,7 +728,7 @@
     selectIntroducer = nil;
     selectIntroducer = [Introducer intoducerFromIntro:intro];
     
-    Patient *patient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientsCellMode.patientId];
+    Patient *patient = [[DBManager shareInstance] getPatientWithPatientCkeyid:self.patientId];
     patient.introducer_id = selectIntroducer.ckeyid;//表明是本地介绍人
     patient.intr_name = selectIntroducer.intr_name;//介绍人姓名
     //更新患者信息
@@ -741,7 +741,7 @@
         //表明存在本地介绍人,当前操作是修改
         mapOrigin.intr_id = selectIntroducer.ckeyid;
         mapOrigin.intr_source = @"B";
-        mapOrigin.patient_id = self.patientsCellMode.patientId;
+        mapOrigin.patient_id = self.patientId;
         mapOrigin.doctor_id = [AccountManager shareInstance].currentUser.userid;
         mapOrigin.intr_time = [NSString currentDateString];
         
@@ -761,7 +761,7 @@
         PatientIntroducerMap *map = [[PatientIntroducerMap alloc]init];
         map.intr_id = selectIntroducer.ckeyid;
         map.intr_source = @"B";
-        map.patient_id = self.patientsCellMode.patientId;
+        map.patient_id = self.patientId;
         map.doctor_id = [AccountManager shareInstance].currentUser.userid;
         map.intr_time = [NSString currentDateString];
         
@@ -793,7 +793,7 @@
     PatientIntroducerMap *map = [[PatientIntroducerMap alloc]init];
     map.intr_id = selectIntroducer.ckeyid;
     map.intr_source = @"B";
-    map.patient_id = self.patientsCellMode.patientId;
+    map.patient_id = self.patientId;
     map.doctor_id = [AccountManager shareInstance].currentUser.userid;
     map.intr_time = [NSString currentDateString];
     
@@ -846,7 +846,7 @@
         _comments = [NSMutableArray array];
         
         UserObject *currentUser = [[AccountManager shareInstance] currentUser];
-        NSArray *commentArr = [[DBManager shareInstance] getPatientConsultationWithPatientId:self.patientsCellMode.patientId];
+        NSArray *commentArr = [[DBManager shareInstance] getPatientConsultationWithPatientId:self.patientId];
         if (commentArr.count > 0) {
             for (int i = 0; i < commentArr.count; i++) {
                 PatientConsultation *model = commentArr[i];

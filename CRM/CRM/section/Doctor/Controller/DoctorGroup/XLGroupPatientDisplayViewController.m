@@ -323,7 +323,7 @@
 
 -(UIView *)setUpGroupViewAndButtons{
     
-    CGFloat commonW = (kScreenWidth - 50) / 4;
+    CGFloat commonW = (kScreenWidth - 50) / 2;
     CGFloat commonH = 40;
     
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, kScreenWidth, commonH)];
@@ -338,32 +338,16 @@
     [bgView addSubview:nameButton];
     
     
-    UIButton *statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statusButton setTitle:@"状态" forState:UIControlStateNormal];
-    [statusButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
-    [statusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    statusButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [statusButton addTarget:self action:@selector(statusButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [bgView addSubview:statusButton];
-    
     UIButton *introducerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [introducerButton setTitle:@"介绍人" forState:UIControlStateNormal];
-    [introducerButton setFrame:CGRectMake(statusButton.right, 0, commonW, commonH)];
+    [introducerButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
     [introducerButton addTarget:self action:@selector(introducerButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [introducerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     introducerButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:introducerButton];
     
-    UIButton *numberButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [numberButton setTitle:@"数量" forState:UIControlStateNormal];
-    [numberButton setFrame:CGRectMake(introducerButton.right, 0, commonW, commonH)];
-    [numberButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [numberButton addTarget:self action:@selector(numberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    numberButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:numberButton];
-    
     UIButton *chooseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    chooseButton.frame = CGRectMake(numberButton.right + 5, 0, 40, 40);
+    chooseButton.frame = CGRectMake(introducerButton.right + 5, 0, commonH, commonH);
     chooseButton.selected = self.isChooseAll;
     [chooseButton setImage:[UIImage imageNamed:@"no-choose"] forState:UIControlStateNormal];
     [chooseButton setImage:[UIImage imageNamed:@"remove-blue"] forState:UIControlStateSelected];
@@ -380,11 +364,9 @@
     GroupMemberModel *model = sourceArray[indexPath.row];
     Patient *patient = [[DBManager shareInstance] getPatientWithPatientCkeyid:model.ckeyid];
     if (patient != nil) {
-        PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-        cellModel.patientId = patient.ckeyid;
         //跳转到新的患者详情页面
         PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-        detailVc.patientsCellMode = cellModel;
+        detailVc.patientId = patient.ckeyid;
         detailVc.hidesBottomBarWhenPushed = YES;
         [self pushViewController:detailVc animated:YES];
     }else {
@@ -400,11 +382,9 @@
                 [SVProgressHUD dismiss];
                 BOOL ret = [[DBManager shareInstance] saveAllDownloadPatientInfoWithPatientModel:arrayM[0]];
                 if (ret) {
-                    PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-                    cellModel.patientId = patient.ckeyid;
                     //跳转到新的患者详情页面
                     PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-                    detailVc.patientsCellMode = cellModel;
+                    detailVc.patientId = patient.ckeyid;
                     detailVc.hidesBottomBarWhenPushed = YES;
                     [self pushViewController:detailVc animated:YES];
                 }

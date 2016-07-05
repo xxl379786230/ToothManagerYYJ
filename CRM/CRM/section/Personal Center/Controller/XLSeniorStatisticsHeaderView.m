@@ -52,7 +52,7 @@
         [repairDoctorSuperView addGestureRecognizer:tap];
         
         //修复医生标题
-        NSString *title = @"修复医生:";
+        NSString *title = @"主管医生:";
         CGSize titleSize = [title sizeWithFont:CommonTextFont];
         UILabel *repairDoctorTitle = [[UILabel alloc] initWithFrame:CGRectMake(margin, 0, titleSize.width, superH)];
         repairDoctorTitle.textColor = CommonTextColor;
@@ -174,9 +174,9 @@
     
     NSString *timeTitle;
     if ([self.type isEqualToString:PlantType]) {
-        timeTitle = @"种植时间：";
+        timeTitle = @"初诊时间：";
     }else{
-        timeTitle = @"修复时间：";
+        timeTitle = @"治疗完成时间：";
     }
     
     CGSize timeTitleSize = [timeTitle sizeWithFont:CommonTextFont];

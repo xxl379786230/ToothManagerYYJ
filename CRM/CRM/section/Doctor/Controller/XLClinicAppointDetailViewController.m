@@ -264,10 +264,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 1) {
         //跳转到患者详情页面
-        PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-        cellModel.patientId = self.currentModel.patient_id;
         PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-        detailVc.patientsCellMode = cellModel;
+        detailVc.patientId = self.currentModel.patient_id;
         [self.navigationController pushViewController:detailVc animated:YES];
     }else if (indexPath.row == 5){
         //跳转到诊所详情

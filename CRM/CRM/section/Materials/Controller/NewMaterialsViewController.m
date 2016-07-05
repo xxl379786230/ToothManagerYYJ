@@ -118,13 +118,13 @@
         self.priceTextField.text = [NSString stringWithFormat:@"%d",(int)_material.mat_price];
         self.typeTextField.text = [Material typeStringWith:_material.mat_type];
         if (self.showPatients) {
-            self.title = @"种植体详情";
+            self.title = @"耗材详情";
             [self setRightBarButtonWithImage:[UIImage imageNamed:@"material_bianji_white"]];
             self.nameTextField.enabled = NO;
             self.priceTextField.enabled = NO;
             self.typeTextField.enabled = NO;
         }else{
-            self.title = @"编辑种植体";
+            self.title = @"编辑耗材";
             self.tableView.hidden = YES;
             [self setRightBarButtonWithTitle:@"保存"];
         }
@@ -132,7 +132,7 @@
     } else {
         _material = [[Material alloc] init];
         self.tableView.hidden = YES;
-        self.title = @"添加种植体";
+        self.title = @"添加耗材";
         [self setRightBarButtonWithTitle:@"保存"];
     }
     
@@ -178,7 +178,7 @@
 #pragma mark - Button Action
 - (void)onRightButtonAction:(id)sender {
     if ([self.nameTextField.text isEmpty]) {
-        [SVProgressHUD showImage:nil status:@"请输入种植体名称"];
+        [SVProgressHUD showImage:nil status:@"请输入耗材名称"];
         return;
     }
     
@@ -186,18 +186,18 @@
     if (!self.edit) {
         BOOL ret = [[DBManager shareInstance] materialIsExistWithMaterialName:self.nameTextField.text];
         if (ret) {
-            [SVProgressHUD showImage:nil status:@"该种植体已存在"];
+            [SVProgressHUD showImage:nil status:@"该耗材已存在"];
             return;
         }        
     }
     
     //判断耗材名称长度
     if ([self.nameTextField.text isValidLength:32]) {
-        [SVProgressHUD showImage:nil status:@"种植体名称过长"];
+        [SVProgressHUD showImage:nil status:@"耗材名称过长"];
         return;
     }
     if ([self.priceTextField.text floatValue] > 1000000 || ![self.priceTextField.text isPureNumandCharacters] || [self.priceTextField.text isEmpty]) {
-        [SVProgressHUD showImage:nil status:@"种植体价格无效"];
+        [SVProgressHUD showImage:nil status:@"耗材价格无效"];
         return;
     }
     
@@ -266,7 +266,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    CGFloat commonW = kScreenWidth / 4;
+    CGFloat commonW = kScreenWidth / 2;
     CGFloat commonH = 40;
     
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, commonH)];
@@ -282,27 +282,12 @@
     nameButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:nameButton];
     
-    
-    UIButton *statusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [statusButton setTitle:@"状态" forState:UIControlStateNormal];
-    [statusButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
-    [statusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    statusButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:statusButton];
-    
     UIButton *introducerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [introducerButton setTitle:@"介绍人" forState:UIControlStateNormal];
-    [introducerButton setFrame:CGRectMake(statusButton.right, 0, commonW, commonH)];
+    [introducerButton setFrame:CGRectMake(nameButton.right, 0, commonW, commonH)];
     [introducerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     introducerButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [bgView addSubview:introducerButton];
-    
-    UIButton *numberButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [numberButton setTitle:@"数量" forState:UIControlStateNormal];
-    [numberButton setFrame:CGRectMake(introducerButton.right, 0, commonW, commonH)];
-    [numberButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    numberButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [bgView addSubview:numberButton];
     
     return bgView;
 }
@@ -334,7 +319,7 @@
     PatientsCellMode *cellMode = [patientCellModeArray objectAtIndex:indexPath.row];
     //跳转到新的患者详情页面
     PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-    detailVc.patientsCellMode = cellMode;
+    detailVc.patientId = cellMode.patientId;
     [self pushViewController:detailVc animated:YES];
 }
 

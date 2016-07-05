@@ -176,7 +176,7 @@
 
         cell.materialName.textColor = [UIColor blackColor];
     } else {
-        cell.materialName.text = @"选择种植体类型";
+        cell.materialName.text = @"选择耗材类型";
         cell.materialName.textColor = [UIColor colorWithHex:0xdddddd];
     }
     if (expense.expense_num == 0) {

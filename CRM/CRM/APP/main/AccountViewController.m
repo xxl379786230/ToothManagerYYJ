@@ -64,7 +64,6 @@
     IBOutlet UITableViewCell *_shuJuFenXiCell;
     IBOutlet UITableViewCell *_sheZhiCell;
     IBOutlet UITableViewCell *_shareCell;
-    IBOutlet UITableViewCell *_myBillCell;
     
     __weak IBOutlet UIImageView *iconImageView;
     __weak IBOutlet UITableViewCell *_copyCell;
@@ -157,7 +156,7 @@
 
 #pragma mark - UITableViewDataSource/Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 6;
+    return 5;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -169,8 +168,6 @@
         return 2;
     }else if (section==3){
         return 1;
-    }else if(section == 4){
-        return 2;
     }else{
         return 2;
     }
@@ -202,15 +199,10 @@
             return _tiXingMuBanCell;
         }
     }else if (indexPath.section == 3){
-        return _myBillCell;
-    }else if (indexPath.section == 4){
         if (indexPath.row == 0) {
             return _shuJuFenXiCell;
-        }else if(indexPath.row == 1){
-            return _shareCell;
         }
-        
-    }else if (indexPath.section == 5){
+    }else if (indexPath.section == 4){
         if (indexPath.row == 0) {
             return _copyCell;
         }else{
@@ -255,24 +247,18 @@
             templateVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:templateVc animated:YES];
         }
-    }else if (indexPath.section == 3) {
-        WMPageController *pageController = [self p_defaultController];
-        pageController.title = @"我的订单";
-        pageController.menuViewStyle = WMMenuViewStyleLine;
-        pageController.titleSizeSelected = 15;
-        pageController.titleColorSelected = MyColor(0, 139, 232);
-        pageController.menuHeight = 44;
-        pageController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:pageController animated:YES];
-    }else if(indexPath.section == 4){
+    }else if(indexPath.section == 3){
         if(indexPath.row == 0){
-            XLDataAnalyseViewController *analyse = [[XLDataAnalyseViewController alloc] initWithStyle:UITableViewStylePlain];
-            analyse.hidesBottomBarWhenPushed = YES;
-            [self pushViewController:analyse animated:YES];
-        }else{
-            [self showShareActionChoose];
+            WMPageController *pageController = [self p_defaultController];
+            pageController.title = @"我的订单";
+            pageController.menuViewStyle = WMMenuViewStyleLine;
+            pageController.titleSizeSelected = 15;
+            pageController.titleColorSelected = MyColor(0, 139, 232);
+            pageController.menuHeight = 44;
+            pageController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:pageController animated:YES];
         }
-    }else if(indexPath.section == 5){
+    }else if(indexPath.section == 4){
         if (indexPath.row == 0) {
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
             XLBackUpViewController *backUpVc = [storyBoard instantiateViewControllerWithIdentifier:@"XLBackUpViewController"];

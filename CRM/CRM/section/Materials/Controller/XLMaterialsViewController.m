@@ -122,9 +122,9 @@
 {
     [super initView];
     if (self.mode == XLMaterialViewModeSelect) {
-        self.title = @"选择种植体";
+        self.title = @"选择耗材";
     }else{
-        self.title = @"种植体";
+        self.title = @"耗材";
     }
     [self setBackBarButtonWithImage:[UIImage imageNamed:@"btn_back"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"btn_new"]];
@@ -218,7 +218,7 @@
     bgView.backgroundColor = MyColor(238, 238, 238);
     
     UIButton *nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [nameButton setTitle:@"种植体名称" forState:UIControlStateNormal];
+    [nameButton setTitle:@"耗材名称" forState:UIControlStateNormal];
     [nameButton setFrame:CGRectMake(0, 0, commonW, commonH)];
     [nameButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     nameButton.titleLabel.font = [UIFont systemFontOfSize:15];

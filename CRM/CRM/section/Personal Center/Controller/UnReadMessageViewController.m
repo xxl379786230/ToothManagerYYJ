@@ -259,10 +259,8 @@
         if (!noOperate) {
             if ([model.message_type isEqualToString:AttainNewPatient]) {
                 //跳转到新的患者详情页面
-                PatientsCellMode *cellModel = [[PatientsCellMode alloc] init];
-                cellModel.patientId = model.message_id;
                 PatientDetailViewController *detailVc = [[PatientDetailViewController alloc] init];
-                detailVc.patientsCellMode = cellModel;
+                detailVc.patientId = model.message_id;
                 detailVc.hidesBottomBarWhenPushed = YES;
                 [weakSelf.navigationController pushViewController:detailVc animated:YES];
             }else if ([model.message_type isEqualToString:CancelReserveRecord]){

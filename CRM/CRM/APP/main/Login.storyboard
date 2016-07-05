@@ -20,11 +20,11 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-dU-Z4T">
-                                    <rect key="frame" x="121" y="72" width="79" height="87"/>
+                                    <rect key="frame" x="108" y="72" width="105" height="83"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="87" id="Hjz-bd-Tk9"/>
-                                        <constraint firstAttribute="width" constant="79" id="X8a-Ub-30p"/>
+                                        <constraint firstAttribute="height" constant="83" id="Hjz-bd-Tk9"/>
+                                        <constraint firstAttribute="width" constant="105" id="X8a-Ub-30p"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -3013,7 +3013,7 @@
         <image name="login_head.png" width="80" height="80"/>
         <image name="login_liense.png" width="11" height="9"/>
         <image name="login_liense_bg.png" width="14" height="14"/>
-        <image name="login_logo.png" width="79" height="87"/>
+        <image name="login_logo.png" width="105" height="83"/>
         <image name="login_phone.png" width="10" height="15"/>
         <image name="login_secret.png" width="13" height="16"/>
         <image name="yawei_qd.png" width="284" height="46"/>

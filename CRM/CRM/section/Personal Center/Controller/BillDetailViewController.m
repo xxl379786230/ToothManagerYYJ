@@ -227,7 +227,7 @@
             cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@",self.detailModel.assist_money];
             
         }else{
-            cell.textLabel.text = @"种植体";
+            cell.textLabel.text = @"耗材";
             cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@",self.detailModel.material_money];
         }
     }else{
